@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubik.className} bg-background text-white`}>
-        <div className='container m-auto'>
+        <div className='w-3/4  m-auto'>
           <nav className='flex justify-between py-4'>
             <img src='/logo.svg' />
             <ul className='flex'>

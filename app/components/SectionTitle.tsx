@@ -1,7 +1,11 @@
-export default function SectionTitle(props: { title: string }) {
+export default function SectionTitle({ children }:
+  {
+    children: React.ReactNode
+  }
+) {
   return (
-    <p id={props.title} className="font-light">
-      ///{props.title}
+    <p className="font-light">
+      ///{children}
     </p>
   )
 }

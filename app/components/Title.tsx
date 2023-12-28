@@ -1,4 +1,4 @@
-export default function SectionTitle({ children }:
+export default function Title({ children }:
   {
     children: React.ReactNode
   }

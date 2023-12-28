@@ -1,4 +1,4 @@
-export default function SectionText({ className, children }:
+export default function Text({ className, children }:
   {
     className?: string,
     children: React.ReactNode

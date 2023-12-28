@@ -21,9 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubik.className} bg-background text-white`}>
-        <div className='w-3/4  m-auto'>
-          <nav className='flex justify-between py-4'>
-            <img src='/logo.svg' />
+        <div className='w-2/3  m-auto'>
+          <nav className='flex justify-between my-8'>
+            <a href='/'><img src='/logo.svg' /></a>
             <ul className='flex'>
               <li className='mx-5 my-auto'><a href='#'>Inicio</a></li>
               <li className='mx-5 my-auto'><a href='#'>Como funciona?</a></li>
@@ -35,7 +35,7 @@ export default function RootLayout({
           </nav>
           {children}
           <nav className='flex-col py-4'>
-            <img className='m-auto' src='/logo.svg' />
+            <a href='/'><img className='m-auto' src='/logo.svg' /></a>
             <ul className='flex justify-center py-4'>
               <li className='mx-5 my-auto'><a href='#'>Inicio</a></li>
               <li className='mx-5 my-auto'><a href='#'>Como funciona?</a></li>

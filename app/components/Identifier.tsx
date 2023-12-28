@@ -1,4 +1,4 @@
-export default function Title({ children }:
+export default function Identifier({ children }:
   {
     children: React.ReactNode
   }

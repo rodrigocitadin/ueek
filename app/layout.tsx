@@ -34,9 +34,9 @@ export default function RootLayout({
             </ul>
           </nav>
           {children}
-          <nav className='flex-col py-4'>
+          <nav className='flex-col my-10'>
             <a href='/'><img className='m-auto' src='/logo.svg' /></a>
-            <ul className='flex justify-center py-4'>
+            <ul className='flex justify-center my-4'>
               <li className='mx-5 my-auto'><a href='#'>Inicio</a></li>
               <li className='mx-5 my-auto'><a href='#'>Como funciona?</a></li>
               <li className='mx-5 my-auto'><a href='#'>Prêmio</a></li>

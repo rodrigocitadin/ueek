@@ -1,4 +1,5 @@
 import Connect from "./sections/Connect";
+import Numbers from "./sections/Numbers";
 import Reward from "./sections/Reward";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Connect />
       <Reward />
+      <Numbers />
     </main>
   )
 }

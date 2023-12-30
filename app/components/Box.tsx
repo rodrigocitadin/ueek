@@ -4,7 +4,7 @@ export default function Box({ className, children, disabled }: {
   disabled?: boolean
 }) {
   return (
-    <button disabled={disabled ?? true} className={`font-medium items-center border-2 px-2 rounded-lg ${className}`}>
+    <button disabled={disabled ?? true} className={`font-medium items-center border-3 px-2 rounded-lg ${className}`}>
       {children ?? 'x'}
     </button>
   )

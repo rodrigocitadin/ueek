@@ -7,6 +7,11 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    extend: {
+      borderWidth: {
+        '3': '3px'
+      }
+    },
     colors: {
       'transparent': 'transparent',
       'background': '#1C232B',

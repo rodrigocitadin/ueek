@@ -9,7 +9,7 @@ import UnavailableBox from "../components/UnavailableBox";
 const numbers: number[] = [...Array(80)].map((_, i) => 1 + i++);
 
 function SelectNumbers() {
-  return numbers.map((v) => v % 2
+  return numbers.map((v) => v % 5 || v % 2
     ? <AvailableBox className="mr-2 my-1">{v.toString()}</AvailableBox>
     : <UnavailableBox className="mr-2 my-1"/>
   )

@@ -1,10 +1,19 @@
+import AvailableBox from "../components/AvailableBox";
 import Box from "../components/Box";
 import BuySelectedNumbersButton from "../components/BuySelectedNumbersButton";
 import CannotBuyButton from "../components/CannotBuyButton"
 import SmallText from "../components/SmallText";
 import Title from "../components/Title"
+import UnavailableBox from "../components/UnavailableBox";
 
-const numbers: number[] = [1];
+const numbers: number[] = [...Array(80)].map((_, i) => 1 + i++);
+
+function SelectNumbers() {
+  return numbers.map((v) => v % 2
+    ? <AvailableBox className="mr-2 my-1">{v.toString()}</AvailableBox>
+    : <UnavailableBox className="mr-2 my-1"/>
+  )
+}
 
 function NumbersButton() {
   return numbers.length
@@ -33,6 +42,11 @@ export default function Numbers() {
             </div>
           </div>
         </div>
+
+        <div className="my-8">
+          <SelectNumbers />
+        </div>
+
         <div className="flex justify-between items-center">
           <NumbersButton />
           <SmallText className="!text-gray-light">*Selecione quantos números desejar</SmallText>

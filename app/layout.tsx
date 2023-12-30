@@ -33,7 +33,9 @@ export default function RootLayout({
               </a></li>
             </ul>
           </nav>
-          {children}
+        </div>
+        {children}
+        <div className='w-2/3 m-auto'>
           <nav className='flex-col my-10'>
             <a href='/'><img className='m-auto' src='/logo.svg' /></a>
             <ul className='flex justify-center my-4'>

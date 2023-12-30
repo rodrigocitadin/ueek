@@ -1,3 +1,5 @@
+'use client';
+
 import AvailableBox from "../components/AvailableBox";
 import Box from "../components/Box";
 import BuySelectedNumbersButton from "../components/BuySelectedNumbersButton";
@@ -7,12 +9,20 @@ import Title from "../components/Title"
 import UnavailableBox from "../components/UnavailableBox";
 
 const numbers: number[] = [...Array(80)].map((_, i) => 1 + i++);
+const availableNumbers: number[] = [...Array(80)].map((_, i) => 1 + i++); 
+const selectedNumbers: number[] = new Array();
 
 function SelectNumbers() {
   return numbers.map((v) => v % 5 || v % 2
-    ? <AvailableBox className="mr-2 my-1">{v.toString()}</AvailableBox>
-    : <UnavailableBox className="mr-2 my-1"/>
+    ? <AvailableBox onClick={selectNumber} className="mr-2 my-1">{v.toString()}</AvailableBox>
+    : <UnavailableBox className="mr-2 my-1" />
   )
+}
+
+function selectNumber(children: React.ReactNode) { 
+  selectedNumbers.push(Number(children?.valueOf()));
+  console.log(children?.valueOf());
+  console.log(selectedNumbers);
 }
 
 function NumbersButton() {

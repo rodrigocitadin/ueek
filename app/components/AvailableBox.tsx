@@ -1,12 +1,17 @@
-import Box from "./Box"
+'use client';
 
-export default function AvailableBox({ children, className }: {
+export default function AvailableBox({ onClick, children, className }: {
+  onClick: (children: React.ReactNode) => void,
   children: string
   className?: string
 }) {
+  function handleClick() {
+    onClick && onClick(children);
+  }
+
   return (
-    <Box disabled={false} className={`border-blue text-white w-14 ${className}`}>
+    <button onClick={handleClick} className={`font-medium items-center border-3 px-2 rounded-lg border-blue text-white w-14 ${className}`}>
       {children}
-    </Box>
+    </button>
   )
 }

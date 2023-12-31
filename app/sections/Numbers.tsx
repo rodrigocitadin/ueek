@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from "react";
 import AvailableBox from "../components/AvailableBox";
 import Box from "../components/Box";
 import BuySelectedNumbersButton from "../components/BuySelectedNumbersButton";
@@ -8,33 +9,38 @@ import SmallText from "../components/SmallText";
 import Title from "../components/Title"
 import UnavailableBox from "../components/UnavailableBox";
 
-const numbers: number[] = [...Array(80)].map((_, i) => 1 + i++);
-const selectedNumbers: number[] = new Array();
-
-function SelectNumbers() {
-  return numbers.map((v) => v % 5 || v % 2
-    ? <AvailableBox onClick={selectNumber} className="mr-2 my-1">{v.toString()}</AvailableBox>
-    : <UnavailableBox className="mr-2 my-1" />
-  )
-}
-
-function selectNumber(children: React.ReactNode, isClicked: boolean) {
-  if (!isClicked) {
-    selectedNumbers.push(Number(children?.valueOf()));
-  } else {
-    const index = selectedNumbers.indexOf(Number(children?.valueOf()));
-
-    selectedNumbers.splice(index, 1);
-  }
-}
-
-function NumbersButton() {
-  return selectedNumbers.length
-    ? <BuySelectedNumbersButton />
-    : <CannotBuyButton />
-}
-
 export default function Numbers() {
+  const numbers: number[] = [...Array(80)].map((_, i) => 1 + i++);
+  const selectedNumbers: number[] = new Array();
+
+  function SelectNumbers() {
+    return numbers.map((v) => v % 5 || v % 2
+      ? <AvailableBox onClick={selectNumber} className="mr-2 my-1">{v.toString()}</AvailableBox>
+      : <UnavailableBox className="mr-2 my-1" />
+    )
+  }
+
+  function selectNumber(children: React.ReactNode, isClicked: boolean) {
+    console.log(selectedNumbers.length);
+
+    if (!isClicked) {
+      selectedNumbers.push(Number(children?.valueOf()));
+    } else {
+      const index = selectedNumbers.indexOf(Number(children?.valueOf()));
+
+      selectedNumbers.splice(index, 1);
+    }
+
+    console.log(selectedNumbers);
+    console.log(selectedNumbers.length);
+  }
+
+  function NumbersButton() {
+    return selectedNumbers.length
+      ? <BuySelectedNumbersButton />
+      : <CannotBuyButton />
+  }
+
   return (
     <div className="my-24 items-end">
       <Title className="!font-medium">Compre seu número por apenas <span className="text-blue-light">R$5,00</span></Title>

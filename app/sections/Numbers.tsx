@@ -9,7 +9,6 @@ import Title from "../components/Title"
 import UnavailableBox from "../components/UnavailableBox";
 
 const numbers: number[] = [...Array(80)].map((_, i) => 1 + i++);
-const availableNumbers: number[] = [...Array(80)].map((_, i) => 1 + i++); 
 const selectedNumbers: number[] = new Array();
 
 function SelectNumbers() {
@@ -19,14 +18,18 @@ function SelectNumbers() {
   )
 }
 
-function selectNumber(children: React.ReactNode) { 
-  selectedNumbers.push(Number(children?.valueOf()));
-  console.log(children?.valueOf());
-  console.log(selectedNumbers);
+function selectNumber(children: React.ReactNode, isClicked: boolean) {
+  if (!isClicked) {
+    selectedNumbers.push(Number(children?.valueOf()));
+  } else {
+    const index = selectedNumbers.indexOf(Number(children?.valueOf()));
+
+    selectedNumbers.splice(index, 1);
+  }
 }
 
 function NumbersButton() {
-  return numbers.length
+  return selectedNumbers.length
     ? <BuySelectedNumbersButton />
     : <CannotBuyButton />
 }
@@ -52,11 +55,9 @@ export default function Numbers() {
             </div>
           </div>
         </div>
-
         <div className="my-8">
           <SelectNumbers />
         </div>
-
         <div className="flex justify-between items-center">
           <NumbersButton />
           <SmallText className="!text-gray-light">*Selecione quantos números desejar</SmallText>

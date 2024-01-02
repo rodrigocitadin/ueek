@@ -22,16 +22,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${rubik.className} min-h-screen flex flex-col justify-between bg-background text-white`}>
-        <div className='w-5/6 mx-auto xl:w-2/3'>
-          <AsideNav />
-          <FullNav />
-        </div>
-        {children}
-        <div className='w-5/6 mx-auto xl:w-2/3'>
-          <BottomNav />
-        </div>
-      </body>
-    </html>
+        <body className={`${rubik.className} min-h-screen flex flex-col justify-between bg-background text-white`}>
+          <div className='w-5/6 mx-auto xl:w-2/3'>
+            <AsideNav />
+            <FullNav />
+          </div>
+          {children}
+          <div className='w-5/6 mx-auto xl:w-2/3'>
+            <BottomNav />
+          </div>
+        </body>
+    </html >
   )
 }

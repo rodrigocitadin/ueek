@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-interface numbersState {
+export interface numbersState {
   numbers: number[]
   selectedNumbers: number[]
 }
 
 const initialState: numbersState = {
-  numbers: [],
+  numbers: [...Array(80)].map((_, i) => 1 + i++),
   selectedNumbers: [],
 }
 
@@ -19,12 +19,10 @@ const numbersSlice = createSlice({
     },
 
     removeSelectedNumber: (state: numbersState, action: PayloadAction<number>) => {
-      const index = state.selectedNumbers.indexOf(Number(action));
-
-      state.selectedNumbers.splice(index, 1)
+      state.selectedNumbers.splice(Number(action), 1)
     }
   }
 })
 
-export const { addSelectedNumber } = numbersSlice.actions;
+export const { addSelectedNumber, removeSelectedNumber } = numbersSlice.actions;
 export default numbersSlice.reducer;

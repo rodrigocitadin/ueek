@@ -1,8 +1,12 @@
+'use client'
+
+import { Provider } from "react-redux";
 import Box from "../components/Box";
 import NumbersButton from "../components/NumbersButton";
 import NumbersToSelect from "../components/NumbersToSelect";
 import SmallText from "../components/SmallText";
 import Title from "../components/Title"
+import store from "../store";
 
 export default function Numbers() {
   return (
@@ -25,13 +29,15 @@ export default function Numbers() {
             </div>
           </div>
         </div>
-        <div className="my-8">
-          <NumbersToSelect />
-        </div>
-        <div className="flex flex-col justify-between items-center xl:flex-row">
-          <NumbersButton />
-          <SmallText className="!text-gray-light mt-4 xl:mt-0">*Selecione quantos números desejar</SmallText>
-        </div>
+        <Provider store={store}>
+          <div className="my-8">
+            <NumbersToSelect />
+          </div>
+          <div className="flex flex-col justify-between items-center xl:flex-row">
+            <NumbersButton />
+            <SmallText className="!text-gray-light mt-4 xl:mt-0">*Selecione quantos números desejar</SmallText>
+          </div>
+        </Provider>
       </div>
     </div>
   )

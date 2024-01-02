@@ -5,7 +5,7 @@ export default function Identifier({ children }:
 ) {
   return (
     <p id={children?.toString().toLowerCase()} className="font-light my-4">
-      ///{children}
+      {`///${children}`}
     </p>
   )
 }

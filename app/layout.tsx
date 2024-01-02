@@ -23,12 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubik.className} bg-background text-white`}>
-        <div className='w-5/6 m-auto lg:w-2/3'>
+        <div className='w-5/6 m-auto xl:w-2/3'>
           <AsideNav />
           <FullNav />
         </div>
         {children}
-        <div className='w-5/6 m-auto lg:w-2/3'>
+        <div className='w-5/6 m-auto xl:w-2/3'>
           <BottomNav />
         </div>
       </body>

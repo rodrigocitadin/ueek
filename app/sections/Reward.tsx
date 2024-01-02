@@ -5,10 +5,10 @@ import Title from "../components/Title"
 
 export default function Reward() {
   return (
-    <div className="my-24 flex flex-col justify-between items-end lg:flex-row">
-      <img className="lg:mr-10" src="/tv.png" />
+    <div className="my-24 flex flex-col justify-between items-end xl:flex-row">
+      <img className="m-auto xl:mr-10" src="/tv.png" />
       <div>
-        <div className="flex flex-col lg:ml-8 lg:block">
+        <div className="flex flex-col xl:ml-8 xl:block">
           <Identifier>PRÊMIO</Identifier>
           <Title>Smart TV 4k 70”</Title>
           <Text className="my-4">Ao comprar um número você pode ganhar essa TV que contém uma imagem única e cheia de detalhes.</Text>

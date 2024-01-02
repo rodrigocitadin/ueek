@@ -11,9 +11,13 @@ export default function Connect() {
           <h1 className="text-5xl font-normal">Ajude alunos a se formar</h1>
           <Text className="my-4">Cada rifa que você adquire nos ajuda a chegar mais perto do nosso objetivo e proporciona aos nossos alunos uma celebração inesquecível.</Text>
         </div>
-        <div className="flex flex-col mt-8 lg:flex-row">
-          <BuyNumberButton className="my-2"/>
-          <button className="my-2 rounded-3xl border-white border-2 py-3 px-5 lg:ml-10">Sobre a rifa</button>
+        <div className="flex justify-between mt-8 lg:flex-row">
+          <BuyNumberButton className="my-2" />
+          <a>
+            <button className="my-2 rounded-3xl border-white border-2 py-3 px-5 lg:ml-10">
+              Sobre a rifa
+            </button>
+          </a>
         </div>
       </div>
       <img className="lg:ml-10" src="/banner-person.png" />

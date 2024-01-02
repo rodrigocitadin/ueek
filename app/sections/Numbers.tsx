@@ -6,7 +6,7 @@ import Title from "../components/Title"
 
 export default function Numbers() {
   return (
-    <div className="my-24 items-end">
+    <div id="numbers" className="my-24 items-end">
       <Title className="!font-medium">Compre seu número por apenas <span className="text-blue-light">R$5,00</span></Title>
       <div className="bg-gray-dark p-8 rounded-xl my-8">
         <div className="flex flex-col justify-between lg:flex-row">

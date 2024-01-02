@@ -13,7 +13,7 @@ export default function Connect() {
         </div>
         <div className="flex justify-between mt-8 lg:flex-row">
           <BuyNumberButton className="my-2" />
-          <a>
+          <a href="#sobre">
             <button className="my-2 rounded-3xl border-white border-2 py-3 px-5 lg:ml-10">
               Sobre a rifa
             </button>

@@ -8,7 +8,7 @@ export default function Reward() {
     <div className="my-24 flex flex-col justify-between items-end lg:flex-row">
       <img className="lg:mr-10" src="/tv.png" />
       <div>
-        <div className="flex flex-col lg:ml-8">
+        <div className="flex flex-col lg:ml-8 lg:block">
           <Identifier>PRÊMIO</Identifier>
           <Title>Smart TV 4k 70”</Title>
           <Text className="my-4">Ao comprar um número você pode ganhar essa TV que contém uma imagem única e cheia de detalhes.</Text>

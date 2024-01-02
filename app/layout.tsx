@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${rubik.className} bg-background text-white`}>
-        <div className='w-5/6 m-auto hidden lg:2/3 lg:visible'>
+        <div className='w-5/6 m-auto hidden lg:w-2/3 lg:visible'>
           <nav className='flex justify-between my-8'>
             <a href='/'><img src='/logo.svg' /></a>
             <ul className='flex'>
@@ -35,7 +35,7 @@ export default function RootLayout({
           </nav>
         </div>
         {children}
-        <div className='w-5/6 m-auto lg:2/3'>
+        <div className='w-5/6 m-auto lg:w-2/3'>
           <nav className='flex-col my-10'>
             <a href='/'><img className='m-auto' src='/logo.svg' /></a>
             <ul className='flex justify-center my-4'>

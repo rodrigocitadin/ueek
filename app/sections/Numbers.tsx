@@ -15,7 +15,7 @@ export default function Numbers() {
             <SmallText className="!font-medium">R$ 5,00/número</SmallText>
           </div>
           <div className="flex justify-between mt-6 lg:mt-0">
-            <div className="flex items-center">
+            <div className="flex items-center lg:mr-6">
               <Box className="border-blue text-transparent mr-2" />
               <SmallText className="!font-medium">Disponíveis</SmallText>
             </div>

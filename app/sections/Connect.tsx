@@ -20,7 +20,7 @@ export default function Connect() {
           </a>
         </div>
       </div>
-      <img className="m-auto xl:ml-10" src="/banner-person.png" />
+      <img className="m-auto xl:ml-10 xl:m-0" src="/banner-person.png" />
     </div>
   )
 }

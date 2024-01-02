@@ -6,7 +6,7 @@ import Title from "../components/Title"
 export default function Reward() {
   return (
     <div className="my-24 flex flex-col justify-between items-end xl:flex-row">
-      <img className="m-auto xl:mr-10" src="/tv.png" />
+      <img className="m-auto xl:mr-10 xl:m-0" src="/tv.png" />
       <div>
         <div className="flex flex-col xl:ml-8 xl:block">
           <Identifier>PRÊMIO</Identifier>

@@ -4,7 +4,7 @@ import Identifier from "../components/Identifier"
 
 export default function Connect() {
   return (
-    <div className="my-24 flex justify-between items-end flex-col lg:flex-row">
+    <div className="mt-12 mb-24 flex justify-between items-end flex-col lg:flex-row lg:my-24">
       <div className="mb-10">
         <div className="flex-col max-w-lg">
           <Identifier>CONNECT</Identifier>

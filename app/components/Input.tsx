@@ -16,7 +16,7 @@ export default function Input({
       className={`no-number-arrows font-light bg-transparent border-gray-light placeholder:text-gray-light border-b-3 my-4 focus:outline-none ${className}`}
       type={type}
       placeholder={placeholder ?? ''}
-      maxLength={Number(maxLength) ?? 60}
+      maxLength={maxLength == null ? 60 : Number(maxLength)}
       required={required ?? true}
     />
   )

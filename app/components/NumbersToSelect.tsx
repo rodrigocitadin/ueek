@@ -1,5 +1,3 @@
-'use client';
-
 import { useSelector } from "react-redux";
 import AvailableBox from "./AvailableBox";
 import UnavailableBox from "./UnavailableBox";

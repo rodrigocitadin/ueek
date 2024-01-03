@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from "react";
 import BuyNumberButton from "./BuyNumberButton";
 import Link from "next/link";

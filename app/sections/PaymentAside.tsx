@@ -3,6 +3,7 @@ import { closeAside } from "../reducers/paymentAsideReducer";
 import { removeBlurBg } from "../reducers/asideReducer";
 import Title from "../components/Title";
 import Input from "../components/Input";
+import SelectedNumbers from "../components/SelectedNumbers";
 
 export default function PaymentAside() {
   const hidden = useSelector((state: any) => state.paymentAside.hidden);
@@ -14,7 +15,7 @@ export default function PaymentAside() {
   }
 
   return (
-    <div className={`w-4/5 xl:w-1/3 fixed right-0 top-0 min-h-screen py-8 px-8 xl:px-16 z-50 bg-gray-dark ${hidden}`}>
+    <div className={`w-4/5 xl:w-1/3 fixed right-0 top-0 max-h-screen overflow-auto min-h-screen py-8 px-8 xl:px-16 z-50 bg-gray-dark ${hidden}`}>
       <div className="flex justify-between">
         <Title className="text-xl xl:text-4xl">Comprar número</Title>
         <button onClick={handleClose}>
@@ -49,6 +50,9 @@ export default function PaymentAside() {
         </div>
         <Input placeholder="Insira seu CPF/CNPJ" type="text" />
       </form>
+
+      <p className="my-2">NÚMEROS SELECIONADOS</p>
+      <SelectedNumbers />
     </div>
   )
 }

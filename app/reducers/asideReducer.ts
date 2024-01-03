@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export interface asideState {
   blur: string,
-  paymentBlur: string
+  paymentBlur: string,
 }
 
 const initialState: asideState = {
   blur: '',
-  paymentBlur: ''
+  paymentBlur: '',
 }
 
 const asideSlice = createSlice({

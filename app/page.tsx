@@ -28,8 +28,8 @@ function App() {
           <Reward />
           <Numbers />
         </div>
-        <img src="people.png" className="hidden lg:w-screen lg:visible" />
-        <div className="w-5/6 m-auto lg:w-2/3">
+        <img src="people.png" className={`hidden lg:w-screen xl:block ${blur}`} />
+        <div className={`w-5/6 m-auto lg:w-2/3 ${blur}`}>
           <About />
         </div>
       </main>

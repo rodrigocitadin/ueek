@@ -2,12 +2,14 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface numbersState {
   numbers: number[]
-  selectedNumbers: number[]
+  selectedNumbers: number[],
+  price: number
 }
 
 const initialState: numbersState = {
   numbers: [...Array(80)].map((_, i) => 1 + i++),
   selectedNumbers: [],
+  price: 5.0
 }
 
 const numbersSlice = createSlice({

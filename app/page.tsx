@@ -13,16 +13,17 @@ import BottomNav from "./components/BottomNav";
 
 function App() {
   const blur = useSelector((state: any) => state.aside.blur);
+  const paymentBlur = useSelector((state: any) => state.aside.paymentBlur);
 
   return (
     <>
-      <header className='fixed top-0 z-10 w-5/6 mx-auto xl:w-2/3'>
+      <header className={`fixed top-0 z-10 w-5/6 mx-auto xl:w-2/3 ${paymentBlur}`}>
         <AsideNav />
         <FullNav />
       </header>
-      <main className={`min-h-screen mt-24 lg:mt-12 ${blur}`}>
+      <main className='min-h-screen mt-24 lg:mt-12'>
         <PaymentAside />
-        <div className="w-5/6 m-auto lg:w-2/3">
+        <div className={`w-5/6 m-auto lg:w-2/3 ${blur}`}>
           <Connect />
           <Reward />
           <Numbers />

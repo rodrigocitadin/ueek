@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { closeAside } from "../reducers/paymentAsideReducer";
+import { removeBlurBg } from "../reducers/asideReducer";
 
 export default function PaymentAside() {
   const hidden = useSelector((state: any) => state.paymentAside.hidden);
@@ -7,6 +8,7 @@ export default function PaymentAside() {
 
   function handleClose() {
     dispatch(closeAside());
+    dispatch(removeBlurBg());
   }
 
   return (

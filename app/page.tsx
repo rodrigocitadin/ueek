@@ -14,11 +14,11 @@ import BottomNav from "./components/BottomNav";
 export default function Home() {
   return (
     <Provider store={store}>
-      <header className='w-5/6 mx-auto xl:w-2/3'>
+      <header className='fixed top-0 z-10 w-5/6 mx-auto xl:w-2/3'>
         <AsideNav />
         <FullNav />
       </header>
-      <main className="min-h-screen">
+      <main className="min-h-screen mt-24 lg:mt-12">
         <PaymentAside />
         <div className="w-5/6 m-auto lg:w-2/3">
           <Connect />

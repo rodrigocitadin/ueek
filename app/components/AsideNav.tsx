@@ -15,17 +15,19 @@ export default function AsideNav() {
 
   return (
     <>
-      <div className="flex justify-between mt-8 align-middle lg:hidden">
-        <Link href='/'><img src='/logo.svg' /></Link>
-        <button onClick={showAside}>
-          <img className="w-8" src="menu.svg" />
-        </button>
+      <div className="bg-gray-dark w-screen items-center">
+        <nav className="w-5/6 m-auto py-8 flex justify-between align-middle lg:hidden">
+          <img src='/logo.svg' />
+          <button onClick={showAside}>
+            <img className="w-8" src="menu.svg" />
+          </button>
+        </nav>
       </div>
 
-      <aside className={`z-10 top-0 w-screen right-0 fixed bg-gray-dark ${hide}`}>
-        <nav className={`flex flex-col justify-between m-8`}>
+      <aside className={`z-20 top-0 w-screen fixed bg-gray-dark ${hide}`}>
+        <nav className={`w-5/6 flex flex-col m-auto justify-between my-8`}>
           <div className="flex justify-between align-middle">
-            <Link href='/'><img src='/logo.svg' /></Link>
+            <img src='/logo.svg' />
             <button onClick={hideAside}>
               <img src="close.svg" />
             </button>

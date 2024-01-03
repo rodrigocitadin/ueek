@@ -21,7 +21,7 @@ const numbersSlice = createSlice({
     },
 
     removeSelectedNumber: (state: numbersState, action: PayloadAction<number>) => {
-      state.selectedNumbers.splice(Number(action), 1)
+      state.selectedNumbers.splice(Number(action.payload), 1)
     }
   }
 })

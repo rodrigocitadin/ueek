@@ -30,42 +30,60 @@ export function handleId(
     case 'cep':
       setUpdatingValue({
         ...updatingValue,
-        cep: eventValue
+        address: {
+          ...updatingValue.address,
+          cep: eventValue
+        }
       });
       break;
 
     case 'district':
       setUpdatingValue({
         ...updatingValue,
-        district: eventValue
+        address: {
+          ...updatingValue.address,
+          district: eventValue
+        }
       });
       break;
 
     case 'street':
       setUpdatingValue({
         ...updatingValue,
-        street: eventValue
+        address: {
+          ...updatingValue.address,
+          street: eventValue
+        }
       });
       break;
 
     case 'number':
       setUpdatingValue({
         ...updatingValue,
-        number: eventValue
+        address: {
+          ...updatingValue.address,
+          number: eventValue
+        }
       });
       break;
 
     case 'city':
       setUpdatingValue({
         ...updatingValue,
-        city: eventValue
+        address: {
+          ...updatingValue.address,
+          city: eventValue
+        }
       });
       break;
 
     case 'state':
       setUpdatingValue({
         ...updatingValue,
-        state: eventValue
+        address: {
+          ...updatingValue.address,
+          state: eventValue
+        }
       });
       break;
 

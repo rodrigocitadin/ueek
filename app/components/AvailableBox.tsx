@@ -6,8 +6,9 @@ export default function AvailableBox({ children, className }: {
   children: string,
   className?: string
 }) {
-  const [isClicked, setIsClicked] = useState(false);
   const selectedNumbers: number[] = useSelector((state: any) => state.numbers.selectedNumbers);
+
+  const [isClicked, setIsClicked] = useState(false);
 
   const defaultClassName = `font-medium items-center border-3 px-2 rounded-lg `
   const clickedClassName = `${defaultClassName} border-blue-light bg-blue-light text-white w-14 ${className}`;

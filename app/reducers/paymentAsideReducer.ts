@@ -1,36 +1,45 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { sendData } from "../utils/sendData";
 
-export interface paymentAsideState {
+export interface PaymentAsideState {
   hidden: string,
-  data: data
+  data: Data
 }
 
-interface data {
-    name: string,
-    email: string,
-    phone: string,
+export interface Data {
+  name: string,
+  email: string,
+  phone: string,
+  cpf: string,
+  address: {
     cep: string,
     district: string,
     street: string,
     number: string,
     city: string,
     state: string,
-    cpf: string
+  },
+  selected_numbers: number[],
+  numbers_id: number
 }
 
-const initialState: paymentAsideState = {
+const initialState: PaymentAsideState = {
   hidden: 'hidden',
   data: {
     name: '',
     email: '',
     phone: '',
-    cep: '',
-    district: '',
-    street: '',
-    number: '',
-    city: '',
-    state: '',
-    cpf: ''
+    cpf: '',
+    address: {
+      cep: '',
+      district: '',
+      street: '',
+      number: '',
+      city: '',
+      state: '',
+    },
+    selected_numbers: [],
+    numbers_id: 1
   }
 }
 
@@ -38,14 +47,15 @@ const paymentAsideSlice = createSlice({
   name: 'paymentAside',
   initialState,
   reducers: {
-    openAside: (state: paymentAsideState) => {
+    openAside: (state: PaymentAsideState) => {
       state.hidden = '';
     },
-    closeAside: (state: paymentAsideState) => {
+    closeAside: (state: PaymentAsideState) => {
       state.hidden = 'hidden';
     },
-    saveData: (state: paymentAsideState, action: PayloadAction<data>) => {
+    saveData: (state: PaymentAsideState, action: PayloadAction<Data>) => {
       state.data = action.payload;
+      sendData(state.data);
       console.log(action.payload);
     }
   }

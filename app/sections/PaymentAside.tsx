@@ -10,14 +10,15 @@ import { handleId } from "../utils/switchCase";
 export default function PaymentAside() {
   const { hidden, data } = useSelector((state: any) => state.paymentAside);
   const { price, selectedNumbers } = useSelector((state: any) => state.numbers);
-  const totalPrice = price * selectedNumbers.length;
+
+  console.log(selectedNumbers);
+
+  const [selectedRadio, setSelectedRadio] = useState('');
+  const [updatingValue, setUpdatingValue] = useState(data);
 
   const dispatch = useDispatch();
 
-  const [updatingValue, setUpdatingValue] = useState({
-    ...data
-  });
-  const [selectedRadio, setSelectedRadio] = useState('');
+  const totalPrice = price * selectedNumbers.length;
 
   function handleClose() {
     dispatch(closeAside());
@@ -28,8 +29,8 @@ export default function PaymentAside() {
     handleId(event, setUpdatingValue, updatingValue)
   }
 
-  function sendData() {
-    dispatch(saveData(updatingValue));
+  function saveDataState() {
+    dispatch(saveData({ ...updatingValue, selected_numbers: selectedNumbers }));
   }
 
   function handleRadio(value: string) {
@@ -49,16 +50,16 @@ export default function PaymentAside() {
         <Input id="email" onChange={handleSaveData} value={updatingValue.email} placeholder="Insira seu email" type="email" />
         <Input id="phone" onChange={handleSaveData} value={updatingValue.phone} placeholder="Insira seu telefone" type="number" />
         <div className="flex justify-between">
-          <Input id="cep" onChange={handleSaveData} value={updatingValue.cep} placeholder="Insira seu CEP" type="number" className="w-1/2 mr-4" />
-          <Input id="district" onChange={handleSaveData} value={updatingValue.district} placeholder="Bairro" type="text" className="w-1/2" />
+          <Input id="cep" onChange={handleSaveData} value={updatingValue.address.cep} placeholder="Insira seu CEP" type="number" className="w-1/2 mr-4" />
+          <Input id="district" onChange={handleSaveData} value={updatingValue.address.district} placeholder="Bairro" type="text" className="w-1/2" />
         </div>
         <div className="flex justify-between">
-          <Input id="street" onChange={handleSaveData} value={updatingValue.street} placeholder="Insira sua rua" type="text" className="w-2/3 mr-4" />
-          <Input id="number" onChange={handleSaveData} value={updatingValue.number} placeholder="Número" type="number" className="w-1/3" />
+          <Input id="street" onChange={handleSaveData} value={updatingValue.address.street} placeholder="Insira sua rua" type="text" className="w-2/3 mr-4" />
+          <Input id="number" onChange={handleSaveData} value={updatingValue.address.number} placeholder="Número" type="number" className="w-1/3" />
         </div>
         <div className="flex justify-between">
-          <Input id="city" onChange={handleSaveData} value={updatingValue.city} placeholder="Insira sua cidade" type="text" className="w-2/3 mr-4" />
-          <Input id="state" onChange={handleSaveData} value={updatingValue.state} placeholder="UF" type="text" className="w-1/3" />
+          <Input id="city" onChange={handleSaveData} value={updatingValue.address.city} placeholder="Insira sua cidade" type="text" className="w-2/3 mr-4" />
+          <Input id="state" onChange={handleSaveData} value={updatingValue.address.state} placeholder="UF" type="text" className="w-1/3" />
         </div>
         <div className="flex justify-between">
           <div>
@@ -91,7 +92,7 @@ export default function PaymentAside() {
       </div>
       <div className="flex justify-between my-4">
         <button className="items-center border-2 py-3 px-5 rounded-3xl" onClick={handleClose}>Cancelar</button>
-        <button className="items-center bg-blue-light border-2 border-blue-light py-3 px-5 rounded-3xl" onClick={sendData}>Concluir</button>
+        <button className="items-center bg-blue-light border-2 border-blue-light py-3 px-5 rounded-3xl" onClick={saveDataState}>Concluir</button>
       </div>
     </div>
   )

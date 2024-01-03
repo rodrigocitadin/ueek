@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 export default function BottomNav() {
   return (
     <nav className='flex-col my-10'>
-      <a href='#'><img className='m-auto' src='/logo.svg' /></a>
+      <Link href='/'><img className='m-auto' src='/logo.svg' /></Link>
       <ul className='flex justify-center my-4'>
-        <li className='mx-5 my-auto text-center'><a href='#'>Inicio</a></li>
-        <li className='mx-5 my-auto text-center'><a href='#sobre'>Como funciona?</a></li>
-        <li className='mx-5 my-auto text-center'><a href='#prêmio'>Prêmio</a></li>
+        <li className='mx-5 my-auto text-center'><Link href='/'>Inicio</Link></li>
+        <li className='mx-5 my-auto text-center'><Link href='/#sobre'>Como funciona?</Link></li>
+        <li className='mx-5 my-auto text-center'><Link href='/#prêmio'>Prêmio</Link></li>
       </ul>
     </nav>
   )

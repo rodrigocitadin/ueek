@@ -1,6 +1,7 @@
 import BuyNumberButton from "../components/BuyNumberButton"
 import Text from "../components/Text"
 import Identifier from "../components/Identifier"
+import Link from "next/link"
 
 export default function Connect() {
   return (
@@ -13,11 +14,11 @@ export default function Connect() {
         </div>
         <div className="flex justify-between mt-8 xl:flex-row">
           <BuyNumberButton className="my-2" />
-          <a href="#sobre">
+          <Link href="/#sobre">
             <button className="my-2 rounded-3xl border-white border-2 py-3 px-5 xl:ml-10">
               Sobre a rifa
             </button>
-          </a>
+          </Link>
         </div>
       </div>
       <img className="m-auto xl:ml-10 xl:m-0" src="/banner-person.png" />

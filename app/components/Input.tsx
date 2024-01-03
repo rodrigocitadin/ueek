@@ -3,13 +3,15 @@ export default function Input({
   type,
   className,
   maxLength,
-  required
+  required,
+  value
 } : {
     placeholder?: string,
     type: string,
     className?: string,
     maxLength?: string,
-    required?: boolean
+    required?: boolean,
+    value?: string
   }) {
   return (
     <input
@@ -18,6 +20,7 @@ export default function Input({
       placeholder={placeholder ?? ''}
       maxLength={maxLength == null ? 60 : Number(maxLength)}
       required={required ?? true}
+      value={value ?? ''}
     />
   )
 }

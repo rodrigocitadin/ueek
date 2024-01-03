@@ -4,14 +4,22 @@ import { removeBlurBg } from "../reducers/asideReducer";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import SelectedNumbers from "../components/SelectedNumbers";
+import { useState } from "react";
 
 export default function PaymentAside() {
   const hidden = useSelector((state: any) => state.paymentAside.hidden);
+  const { price, selectedNumbers } = useSelector((state: any) => state.numbers);
   const dispatch = useDispatch();
+
+  const [selectedRadio, setSelectedRadio] = useState('');
 
   function handleClose() {
     dispatch(closeAside());
     dispatch(removeBlurBg());
+  }
+
+  function handleRadio(value: string) {
+    setSelectedRadio(value);
   }
 
   return (
@@ -40,19 +48,33 @@ export default function PaymentAside() {
         </div>
         <div className="flex justify-between">
           <div>
-            <Input required={false} placeholder="" type="radio" className="mr-2" />
+            <input
+              checked={selectedRadio === 'cpf'}
+              onChange={() => handleRadio('cpf')}
+              value="cpf"
+              type="radio"
+              className="mr-2" />
             <label>PESSOAL</label>
           </div>
           <div>
-            <Input required={false} type="radio" className="mr-2" />
+            <input
+              checked={selectedRadio === 'cnpj'}
+              onChange={() => handleRadio('cnpj')}
+              value="cnpj"
+              type="radio"
+              className="mr-2"
+            />
             <label>EMPRESA</label>
           </div>
         </div>
         <Input placeholder="Insira seu CPF/CNPJ" type="text" />
       </form>
-
       <p className="my-2">NÚMEROS SELECIONADOS</p>
       <SelectedNumbers />
+      <div className="flex justify-between my-4">
+        <p className="text-blue-light font-normal">VALOR</p>
+        <p className="text-blue-light font-normal">{`R$ ${(price * selectedNumbers.length).toFixed(2)}`}</p>
+      </div>
     </div>
   )
 }

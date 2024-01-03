@@ -1,16 +1,22 @@
 import { useState } from "react";
 import BuyNumberButton from "./BuyNumberButton";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { blurBg, removeBlurBg } from "../reducers/asideReducer";
 
 export default function AsideNav() {
+  const dispatch = useDispatch();
+
   const [hide, setHide] = useState('hidden');
 
   function hideAside() {
     setHide('hidden');
+    dispatch(removeBlurBg());
   }
 
   function showAside() {
     setHide('');
+    dispatch(blurBg());
   }
 
   return (
@@ -33,10 +39,10 @@ export default function AsideNav() {
             </button>
           </div>
           <div className='flex flex-col'>
-            <Link href='/' className="my-2 mt-8">Inicio</Link>
-            <Link href='#sobre' className="my-2">Como funciona?</Link>
-            <Link href='#prêmio' className="my-2">Prêmio</Link>
-            <BuyNumberButton className="my-2 mt-8" />
+            <Link onClick={hideAside} href='/' className="my-2 mt-8">Inicio</Link>
+            <Link onClick={hideAside}  href='#sobre' className="my-2">Como funciona?</Link>
+            <Link onClick={hideAside}  href='#prêmio' className="my-2">Prêmio</Link>
+            <BuyNumberButton onClick={hideAside} className="my-2 mt-8" />
           </div>
         </nav >
       </aside>

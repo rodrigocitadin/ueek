@@ -9,6 +9,19 @@ import { useState } from "react";
 export default function PaymentAside() {
   const hidden = useSelector((state: any) => state.paymentAside.hidden);
   const { price, selectedNumbers } = useSelector((state: any) => state.numbers);
+  const totalPrice = price * selectedNumbers.length;
+  const data = {
+    name: '',
+    email: '',
+    phone: '',
+    cep: '',
+    district: '',
+    street: '',
+    number: '',
+    city: '',
+    state: '',
+    cpf: ''
+  }
   const dispatch = useDispatch();
 
   const [selectedRadio, setSelectedRadio] = useState('');
@@ -16,6 +29,10 @@ export default function PaymentAside() {
   function handleClose() {
     dispatch(closeAside());
     dispatch(removeBlurBg());
+  }
+
+  function sendData() {
+
   }
 
   function handleRadio(value: string) {
@@ -31,20 +48,20 @@ export default function PaymentAside() {
         </button>
       </div>
       <form className="flex flex-col mt-8">
-        <Input placeholder="Insira seu nome" type="text" />
-        <Input placeholder="Insira seu email" type="email" />
-        <Input placeholder="Insira seu telefone" type="number" />
+        <Input value={data.name} placeholder="Insira seu nome" type="text" />
+        <Input value={data.email} placeholder="Insira seu email" type="email" />
+        <Input value={data.phone} placeholder="Insira seu telefone" type="number" />
         <div className="flex justify-between">
-          <Input placeholder="Insira seu CEP" type="number" maxLength="8" className="w-1/2 mr-4" />
-          <Input placeholder="Bairro" type="text" className="w-1/2" />
+          <Input value={data.cep} placeholder="Insira seu CEP" type="number" maxLength="8" className="w-1/2 mr-4" />
+          <Input value={data.district} placeholder="Bairro" type="text" className="w-1/2" />
         </div>
         <div className="flex justify-between">
-          <Input placeholder="Insira sua rua" type="text" className="w-2/3 mr-4" />
-          <Input placeholder="Número" type="number" className="w-1/3" />
+          <Input value={data.street} placeholder="Insira sua rua" type="text" className="w-2/3 mr-4" />
+          <Input value={data.number} placeholder="Número" type="number" className="w-1/3" />
         </div>
         <div className="flex justify-between">
-          <Input placeholder="Insira sua cidade" type="text" className="w-2/3 mr-4" />
-          <Input placeholder="UF" type="text" className="w-1/3" />
+          <Input value={data.city} placeholder="Insira sua cidade" type="text" className="w-2/3 mr-4" />
+          <Input value={data.state} placeholder="UF" type="text" className="w-1/3" />
         </div>
         <div className="flex justify-between">
           <div>
@@ -67,13 +84,17 @@ export default function PaymentAside() {
             <label>EMPRESA</label>
           </div>
         </div>
-        <Input placeholder="Insira seu CPF/CNPJ" type="text" />
+        <Input value={data.cpf} placeholder="Insira seu CPF/CNPJ" type="text" />
       </form>
       <p className="my-2">NÚMEROS SELECIONADOS</p>
       <SelectedNumbers />
+      <div className="flex justify-between my-8">
+        <p className="text-blue-light font-medium">VALOR</p>
+        <p className="text-blue-light font-medium">{`R$ ${totalPrice.toFixed(2)}`}</p>
+      </div>
       <div className="flex justify-between my-4">
-        <p className="text-blue-light font-normal">VALOR</p>
-        <p className="text-blue-light font-normal">{`R$ ${(price * selectedNumbers.length).toFixed(2)}`}</p>
+        <button className="items-center border-2 py-3 px-5 rounded-3xl" onClick={handleClose}>Cancelar</button>
+        <button className="items-center bg-blue-light border-2 border-blue-light py-3 px-5 rounded-3xl" onClick={sendData}>Concluir</button>
       </div>
     </div>
   )

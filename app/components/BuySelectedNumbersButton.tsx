@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { openAside } from "../paymentAsideReducer";
+import { openAside } from "../reducers/paymentAsideReducer";
 
 export default function BuySelectedNumbersButton({ className }: { className?: string }) {
   const dispatch = useDispatch();

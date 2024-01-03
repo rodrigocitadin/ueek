@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addSelectedNumber, removeSelectedNumber } from "../numbersReducer";
+import { addSelectedNumber, removeSelectedNumber } from "../reducers/numbersReducer";
 
 export default function AvailableBox({ children, className }: {
   children: string,

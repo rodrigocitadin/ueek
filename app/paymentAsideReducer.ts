@@ -1,22 +1,25 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface paymentAsideState {
-  is_open: boolean
+  hidden: string
 }
 
 const initialState: paymentAsideState = {
-  is_open: false
+  hidden: 'hidden'
 }
 
 const paymentAsideSlice = createSlice({
   name: 'paymentAside',
   initialState,
   reducers: {
-    toggleAside: (state: paymentAsideState) => {
-      state.is_open = !state.is_open;
+    openAside: (state: paymentAsideState) => {
+      state.hidden = '';
+    },
+    closeAside: (state: paymentAsideState) => {
+      state.hidden = 'hidden';
     },
   }
 })
 
-export const { toggleAside } = paymentAsideSlice.actions;
+export const { openAside, closeAside } = paymentAsideSlice.actions;
 export default paymentAsideSlice.reducer;

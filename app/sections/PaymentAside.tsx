@@ -1,29 +1,22 @@
 import { useDispatch, useSelector } from "react-redux"
-import { closeAside } from "../reducers/paymentAsideReducer";
+import { closeAside, saveData } from "../reducers/paymentAsideReducer";
 import { removeBlurBg } from "../reducers/asideReducer";
 import Title from "../components/Title";
 import Input from "../components/Input";
 import SelectedNumbers from "../components/SelectedNumbers";
 import { useState } from "react";
+import { handleId } from "../utils/switchCase";
 
 export default function PaymentAside() {
-  const hidden = useSelector((state: any) => state.paymentAside.hidden);
+  const { hidden, data } = useSelector((state: any) => state.paymentAside);
   const { price, selectedNumbers } = useSelector((state: any) => state.numbers);
   const totalPrice = price * selectedNumbers.length;
-  const data = {
-    name: '',
-    email: '',
-    phone: '',
-    cep: '',
-    district: '',
-    street: '',
-    number: '',
-    city: '',
-    state: '',
-    cpf: ''
-  }
+
   const dispatch = useDispatch();
 
+  const [updatingValue, setUpdatingValue] = useState({
+    ...data
+  });
   const [selectedRadio, setSelectedRadio] = useState('');
 
   function handleClose() {
@@ -31,8 +24,12 @@ export default function PaymentAside() {
     dispatch(removeBlurBg());
   }
 
-  function sendData() {
+  function handleSaveData(event: React.ChangeEvent<HTMLInputElement>) {
+    handleId(event, setUpdatingValue, updatingValue)
+  }
 
+  function sendData() {
+    dispatch(saveData(updatingValue));
   }
 
   function handleRadio(value: string) {
@@ -48,20 +45,20 @@ export default function PaymentAside() {
         </button>
       </div>
       <form className="flex flex-col mt-8">
-        <Input value={data.name} placeholder="Insira seu nome" type="text" />
-        <Input value={data.email} placeholder="Insira seu email" type="email" />
-        <Input value={data.phone} placeholder="Insira seu telefone" type="number" />
+        <Input id="name" onChange={handleSaveData} value={updatingValue.name} placeholder="Insira seu nome" type="text" />
+        <Input id="email" onChange={handleSaveData} value={updatingValue.email} placeholder="Insira seu email" type="email" />
+        <Input id="phone" onChange={handleSaveData} value={updatingValue.phone} placeholder="Insira seu telefone" type="number" />
         <div className="flex justify-between">
-          <Input value={data.cep} placeholder="Insira seu CEP" type="number" maxLength="8" className="w-1/2 mr-4" />
-          <Input value={data.district} placeholder="Bairro" type="text" className="w-1/2" />
+          <Input id="cep" onChange={handleSaveData} value={updatingValue.cep} placeholder="Insira seu CEP" type="number" className="w-1/2 mr-4" />
+          <Input id="district" onChange={handleSaveData} value={updatingValue.district} placeholder="Bairro" type="text" className="w-1/2" />
         </div>
         <div className="flex justify-between">
-          <Input value={data.street} placeholder="Insira sua rua" type="text" className="w-2/3 mr-4" />
-          <Input value={data.number} placeholder="Número" type="number" className="w-1/3" />
+          <Input id="street" onChange={handleSaveData} value={updatingValue.street} placeholder="Insira sua rua" type="text" className="w-2/3 mr-4" />
+          <Input id="number" onChange={handleSaveData} value={updatingValue.number} placeholder="Número" type="number" className="w-1/3" />
         </div>
         <div className="flex justify-between">
-          <Input value={data.city} placeholder="Insira sua cidade" type="text" className="w-2/3 mr-4" />
-          <Input value={data.state} placeholder="UF" type="text" className="w-1/3" />
+          <Input id="city" onChange={handleSaveData} value={updatingValue.city} placeholder="Insira sua cidade" type="text" className="w-2/3 mr-4" />
+          <Input id="state" onChange={handleSaveData} value={updatingValue.state} placeholder="UF" type="text" className="w-1/3" />
         </div>
         <div className="flex justify-between">
           <div>
@@ -84,7 +81,7 @@ export default function PaymentAside() {
             <label>EMPRESA</label>
           </div>
         </div>
-        <Input value={data.cpf} placeholder="Insira seu CPF/CNPJ" type="text" />
+        <Input id="cpf" onChange={handleSaveData} value={updatingValue.cpf} placeholder="Insira seu CPF/CNPJ" type="text" />
       </form>
       <p className="my-2">NÚMEROS SELECIONADOS</p>
       <SelectedNumbers />

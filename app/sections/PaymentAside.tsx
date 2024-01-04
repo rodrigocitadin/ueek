@@ -31,6 +31,8 @@ export default function PaymentAside() {
 
   function saveDataState() {
     dispatch(saveData({ ...updatingValue, selected_numbers: selectedNumbers }));
+    dispatch(closeAside());
+    dispatch(removeBlurBg());
   }
 
   function handleRadio(value: string) {

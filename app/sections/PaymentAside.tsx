@@ -1,3 +1,5 @@
+'use client'
+
 import { useDispatch, useSelector } from "react-redux"
 import { closeAside, saveData } from "../reducers/paymentAsideReducer";
 import { removeBlurBg } from "../reducers/asideReducer";
@@ -10,8 +12,6 @@ import { handleId } from "../utils/switchCase";
 export default function PaymentAside() {
   const { hidden, data } = useSelector((state: any) => state.paymentAside);
   const { price, selectedNumbers } = useSelector((state: any) => state.numbers);
-
-  console.log(selectedNumbers);
 
   const [selectedRadio, setSelectedRadio] = useState('');
   const [updatingValue, setUpdatingValue] = useState(data);

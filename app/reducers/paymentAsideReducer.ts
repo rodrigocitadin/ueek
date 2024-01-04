@@ -56,7 +56,7 @@ const paymentAsideSlice = createSlice({
     saveData: (state: PaymentAsideState, action: PayloadAction<Data>) => {
       state.data = action.payload;
       sendData(state.data);
-      console.log(action.payload);
+      // console.log(action.payload);
     }
   }
 })
